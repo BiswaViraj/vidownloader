@@ -12,7 +12,7 @@ const download = (title, quality, url) => {
         fs.mkdirSync(path.join(homedir, folder));
     }
     const video = ytdl(url, {
-        filter: format => format.resolution === quality
+        filter: format => format.qualityLabel === quality
     });
     video.pipe(fs.createWriteStream(output));
     let starttime;
